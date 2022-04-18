@@ -1,6 +1,6 @@
-FROM node:14-alpine
+FROM mjgargani/puppeteer:trybe1.0 As todotests
 WORKDIR /app
-COPY package.json ./
+COPY . .
 ADD node_modules.tar.gz ./
 EXPOSE 3000
-CMD [ "npm", "start" ]
+ENTRYPOINT [ "npm", "test" ]
